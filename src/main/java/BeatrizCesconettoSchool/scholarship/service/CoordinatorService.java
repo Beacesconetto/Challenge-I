@@ -1,14 +1,20 @@
 package BeatrizCesconettoSchool.scholarship.service;
 
-import BeatrizCesconettoSchool.scholarship.dto.CoordinatorDto;
+import BeatrizCesconettoSchool.scholarship.dto.CoordinatorDtoRequest;
+import BeatrizCesconettoSchool.scholarship.dto.CoordinatorDtoResponse;
 import BeatrizCesconettoSchool.scholarship.entity.Coordinator;
-import BeatrizCesconettoSchool.scholarship.entity.Student;
 import BeatrizCesconettoSchool.scholarship.repositry.CoordinatorRepository;
-import org.springframework.http.ResponseEntity;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class CoordinatorService {
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     private final CoordinatorRepository coordinatorRepository;
 
@@ -16,15 +22,18 @@ public class CoordinatorService {
         this.coordinatorRepository = coordinatorRepository;
     }
 
-    public Coordinator registerCoordinator (CoordinatorDto coordinatorDto) {
+    public CoordinatorDtoResponse registerCoordinator (CoordinatorDtoRequest coordinatorDtoRequest) {
 
-        Coordinator coordinator = new Coordinator();
-        coordinator.setName(coordinator.getName());
-        coordinator.setLastname(coordinator.getLastname());
-        coordinator.setEmail(coordinator.getEmail());
+        Coordinator coordinator =  modelMapper.map(coordinatorDtoRequest, Coordinator.class);
 
-        coordinatorRepository.save(coordinator);
+        Coordinator coordinatorSaved = coordinatorRepository.save(coordinator);
 
-        return coordinator;
+        return modelMapper.map(coordinatorSaved, CoordinatorDtoResponse.class);
+    }
+
+    public Coordinator findById(Long id) {
+        Optional <Coordinator> obj = coordinatorRepository.findById(id);
+
+        return obj.orElse(null);
     }
 }

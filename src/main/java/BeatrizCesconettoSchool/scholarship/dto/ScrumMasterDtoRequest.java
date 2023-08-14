@@ -11,18 +11,17 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ScrumMasterDto {
+public class ScrumMasterDtoRequest {
 
     private Long Id;
 
-    @NotBlank
+
     private String name;
 
-    @NotBlank
+
     private String lastname;
 
-    @Email
-    @NotBlank
+
     private String email;
 
 }

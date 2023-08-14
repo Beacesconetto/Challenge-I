@@ -29,4 +29,12 @@ public class Student {
     @Email
     @NotBlank
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "schoolclass_id")
+    private SchoolClass schoolClass;
+
+    @ManyToOne
+    @JoinColumn(name = "squad_id")
+    private Squad squad;
 }

@@ -1,12 +1,18 @@
 package BeatrizCesconettoSchool.scholarship.service;
 
-import BeatrizCesconettoSchool.scholarship.dto.ScrumMasterDto;
+import BeatrizCesconettoSchool.scholarship.dto.ScrumMasterDtoRequest;
+import BeatrizCesconettoSchool.scholarship.dto.ScrumMasterDtoResponse;
 import BeatrizCesconettoSchool.scholarship.entity.ScrumMaster;
 import BeatrizCesconettoSchool.scholarship.repositry.ScrumMasterRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ScrumMasterService {
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     private final ScrumMasterRepository scrumMasterRepository;
 
@@ -14,15 +20,12 @@ public class ScrumMasterService {
         this.scrumMasterRepository = scrumMasterRepository;
     }
 
-    public ScrumMaster registerscrumMaster(ScrumMasterDto scrumMasterDto) {
+    public ScrumMasterDtoResponse registerscrumMaster(ScrumMasterDtoRequest scrumMasterDtoRequest) {
 
-        ScrumMaster scrumMaster = new ScrumMaster();
-        scrumMaster.setName(scrumMaster.getName());
-        scrumMaster.setLastname(scrumMaster.getLastname());
-        scrumMaster.setEmail(scrumMaster.getEmail());
+        ScrumMaster scrumMaster = modelMapper.map(scrumMasterDtoRequest, ScrumMaster.class);
 
-        scrumMasterRepository.save(scrumMaster);
+       ScrumMaster scrumMasterSaved = scrumMasterRepository.save(scrumMaster);
 
-        return scrumMaster;
+        return modelMapper.map(scrumMasterSaved, ScrumMasterDtoResponse.class);
     }
 }

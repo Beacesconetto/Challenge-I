@@ -29,4 +29,8 @@ public class ScrumMaster {
     @Email
     @NotBlank
     private String email;
+
+    @OneToOne(mappedBy = "scrumMaster")
+    @JoinColumn(name = "schoolclass_id")
+    private SchoolClass schoolClass;
 }

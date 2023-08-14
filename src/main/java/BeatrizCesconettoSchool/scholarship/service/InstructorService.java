@@ -1,12 +1,18 @@
 package BeatrizCesconettoSchool.scholarship.service;
 
-import BeatrizCesconettoSchool.scholarship.dto.InstructorDto;
+import BeatrizCesconettoSchool.scholarship.dto.InstructorDtoRequest;
+import BeatrizCesconettoSchool.scholarship.dto.InstructorDtoResponse;
 import BeatrizCesconettoSchool.scholarship.entity.Instructor;
 import BeatrizCesconettoSchool.scholarship.repositry.InstructorRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class InstructorService {
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     private final InstructorRepository instructorRepository;
 
@@ -14,15 +20,13 @@ public class InstructorService {
         this.instructorRepository = instructorRepository;
     }
 
-    public Instructor registerInstructor (InstructorDto instructorDto) {
+    public InstructorDtoResponse registerInstructor (InstructorDtoRequest instructorDtoRequest) {
 
-        Instructor instructor = new Instructor();
-        instructor.setName(instructor.getName());
-        instructor.setLastname(instructor.getLastname());
-        instructor.setEmail(instructor.getEmail());
+            Instructor instructor = modelMapper.map(instructorDtoRequest, Instructor.class);
 
-        instructorRepository.save(instructor);
+            Instructor instructorSaved = instructorRepository.save(instructor);
 
-        return instructor;
+
+        return modelMapper.map(instructorSaved, InstructorDtoResponse.class);
     }
 }

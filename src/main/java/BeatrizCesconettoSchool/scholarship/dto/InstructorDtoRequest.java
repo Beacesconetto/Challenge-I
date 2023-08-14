@@ -13,9 +13,9 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class InstructorDto {
+public class InstructorDtoRequest {
 
-    private Long Id;
+
 
     @NotBlank
     private String name;

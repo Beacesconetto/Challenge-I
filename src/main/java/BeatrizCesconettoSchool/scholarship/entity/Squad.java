@@ -8,6 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "SquadTable")
 @Data
@@ -29,4 +32,7 @@ public class Squad {
     @Email
     @NotBlank
     private String email;
+
+    @OneToMany
+    private List<Student> students = new ArrayList<>();
 }

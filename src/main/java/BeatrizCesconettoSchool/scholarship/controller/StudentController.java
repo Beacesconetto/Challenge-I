@@ -1,10 +1,12 @@
 package BeatrizCesconettoSchool.scholarship.controller;
 
-import BeatrizCesconettoSchool.scholarship.dto.StudentDto;
+import BeatrizCesconettoSchool.scholarship.dto.StudentDtoRequest;
+import BeatrizCesconettoSchool.scholarship.dto.StudentDtoResponse;
 import BeatrizCesconettoSchool.scholarship.repositry.StudentRepository;
 import BeatrizCesconettoSchool.scholarship.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,9 +27,9 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity <StudentDto> newStudent(@Valid@RequestBody StudentDto studentDto) {
-        studentService.registerStudent(studentDto);
+    public ResponseEntity <StudentDtoResponse> newStudent(@Valid@RequestBody StudentDtoRequest studentDtoRequest) {
+        StudentDtoResponse  studeentDtoSave = studentService.registerStudent(studentDtoRequest);
 
-        return ResponseEntity.ok(studentDto);
+        return new ResponseEntity<>(studeentDtoSave, HttpStatus.CREATED) ;
     }
 }

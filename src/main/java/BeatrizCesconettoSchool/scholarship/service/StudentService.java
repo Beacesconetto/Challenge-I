@@ -1,12 +1,18 @@
 package BeatrizCesconettoSchool.scholarship.service;
 
-import BeatrizCesconettoSchool.scholarship.dto.StudentDto;
+import BeatrizCesconettoSchool.scholarship.dto.StudentDtoRequest;
+import BeatrizCesconettoSchool.scholarship.dto.StudentDtoResponse;
 import BeatrizCesconettoSchool.scholarship.entity.Student;
 import BeatrizCesconettoSchool.scholarship.repositry.StudentRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StudentService {
+
+    @Autowired
+    private ModelMapper modelMapper;
     private final StudentRepository studentRepository;
 
 
@@ -14,15 +20,17 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public Student registerStudent(StudentDto studentDto) {
+    public StudentDtoResponse registerStudent(StudentDtoRequest studentDtoRequest) {
 
-        Student student = new Student();
-        student.setName(student.getName());
-        student.setLastname(student.getLastname());
-        student.setEmail(student.getEmail());
+        Student student = modelMapper.map(studentDtoRequest, Student.class);
 
-        studentRepository.save(student);
+        Student studentSaved = studentRepository.save(student);
 
-        return  student;
+        return modelMapper.map(studentSaved,StudentDtoResponse.class) ;
     }
+
+    public Student getStudentById(Long id) {
+        return studentRepository.findById(id).orElse(null);
+    }
+
 }

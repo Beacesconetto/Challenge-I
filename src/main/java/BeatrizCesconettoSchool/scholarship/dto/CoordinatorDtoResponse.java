@@ -12,16 +12,13 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class CoordinatorDto {
+public class CoordinatorDtoResponse {
 
+    private Long id;
 
-    @NotBlank
     private String name;
 
-    @NotBlank
     private String lastname;
-
-    @Email
-    @NotBlank
+    
     private String email;
 }

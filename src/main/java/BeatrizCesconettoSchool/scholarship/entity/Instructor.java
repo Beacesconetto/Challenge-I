@@ -29,4 +29,8 @@ public class Instructor {
     @Email
     @NotBlank
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "schoolclass_id")
+    private SchoolClass schoolClass;
 }

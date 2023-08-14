@@ -1,6 +1,7 @@
 package BeatrizCesconettoSchool.scholarship.dto;
 
 
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -12,18 +13,17 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentDto {
+public class InstructorDtoResponse {
 
 
     private Long Id;
 
-    @NotBlank
+
     private String name;
 
-    @NotBlank
+
     private String lastname;
 
-    @Email
-    @NotBlank
+
     private String email;
 }
