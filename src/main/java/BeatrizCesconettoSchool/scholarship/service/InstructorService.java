@@ -1,5 +1,6 @@
 package BeatrizCesconettoSchool.scholarship.service;
 
+import BeatrizCesconettoSchool.scholarship.Validator.InstructorValidator;
 import BeatrizCesconettoSchool.scholarship.dto.InstructorDtoRequest;
 import BeatrizCesconettoSchool.scholarship.dto.InstructorDtoResponse;
 import BeatrizCesconettoSchool.scholarship.entity.Instructor;
@@ -23,10 +24,11 @@ public class InstructorService {
     public InstructorDtoResponse registerInstructor (InstructorDtoRequest instructorDtoRequest) {
 
             Instructor instructor = modelMapper.map(instructorDtoRequest, Instructor.class);
-
             Instructor instructorSaved = instructorRepository.save(instructor);
-
 
         return modelMapper.map(instructorSaved, InstructorDtoResponse.class);
     }
 }
+
+
+

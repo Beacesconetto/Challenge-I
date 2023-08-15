@@ -1,5 +1,6 @@
 package BeatrizCesconettoSchool.scholarship.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -31,6 +32,6 @@ public class ScrumMaster {
     private String email;
 
     @OneToOne(mappedBy = "scrumMaster")
-    @JoinColumn(name = "schoolclass_id")
+    @JsonBackReference
     private SchoolClass schoolClass;
 }

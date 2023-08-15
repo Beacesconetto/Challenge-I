@@ -12,7 +12,7 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SchoolClassDto {
+public class SchoolClassDtoResponse {
 
     private Long id;
 

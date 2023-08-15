@@ -1,18 +1,18 @@
 package BeatrizCesconettoSchool.scholarship.controller;
 
-import BeatrizCesconettoSchool.scholarship.dto.SchoolClassDto;
+import BeatrizCesconettoSchool.scholarship.dto.SchoolClassDtoRequest;
+import BeatrizCesconettoSchool.scholarship.dto.SchoolClassDtoResponse;
+import BeatrizCesconettoSchool.scholarship.dto.StudentDtoResponse;
 import BeatrizCesconettoSchool.scholarship.repositry.SchoolClassRepository;
 import BeatrizCesconettoSchool.scholarship.service.SchoolClassService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/SchoolClass")
+@RequestMapping("/schoolclass")
 public class SchoolClassController {
 
     @Autowired
@@ -25,9 +25,21 @@ public class SchoolClassController {
     }
 
     @PostMapping
-    public ResponseEntity<SchoolClassDto> newSchoolClass(@Valid @RequestBody SchoolClassDto schoolClassDto) {
-        schoolClassService.registerSchoolClass(schoolClassDto);
+    public ResponseEntity<SchoolClassDtoResponse> newSchoolClass(@Valid @RequestBody SchoolClassDtoRequest schoolClassDtoRequest) {
 
-        return ResponseEntity.ok(schoolClassDto);
+        SchoolClassDtoResponse schoolclassdtoSave = schoolClassService.registerSchoolClass(schoolClassDtoRequest);
+
+        return new ResponseEntity<>(schoolclassdtoSave, HttpStatus.CREATED) ;
+    }
+
+    @PutMapping("/{id}/started")
+    public ResponseEntity<Void> startClass(@PathVariable Long id){
+        schoolClassService.start(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    @PutMapping("/{id}/finished")
+    public ResponseEntity<Void> finishClass(@PathVariable Long id){
+        schoolClassService.finish(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

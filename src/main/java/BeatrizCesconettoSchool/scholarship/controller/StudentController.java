@@ -5,17 +5,18 @@ import BeatrizCesconettoSchool.scholarship.dto.StudentDtoResponse;
 import BeatrizCesconettoSchool.scholarship.repositry.StudentRepository;
 import BeatrizCesconettoSchool.scholarship.service.StudentService;
 import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value ="/students")
 public class StudentController {
+
+    @Autowired
+    private ModelMapper mapper;
 
     @Autowired
     private StudentRepository studentRepository;
@@ -28,8 +29,14 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity <StudentDtoResponse> newStudent(@Valid@RequestBody StudentDtoRequest studentDtoRequest) {
-        StudentDtoResponse  studeentDtoSave = studentService.registerStudent(studentDtoRequest);
+        StudentDtoResponse  studentDtoSave = studentService.registerStudent(studentDtoRequest);
 
-        return new ResponseEntity<>(studeentDtoSave, HttpStatus.CREATED) ;
+        return new ResponseEntity<>(studentDtoSave, HttpStatus.CREATED) ;
+    }
+
+    @GetMapping(value = "/get/{id}")
+    public ResponseEntity<StudentDtoResponse> getStudentById(@PathVariable Long id) {
+
+        return ResponseEntity.ok().body(mapper.map(studentService.getStudentById(id),StudentDtoResponse.class));
     }
 }

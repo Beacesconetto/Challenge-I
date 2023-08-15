@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/coordinator")
+@RequestMapping("/coordinators")
 public class CoordinatorController {
 
     @Autowired
@@ -36,7 +36,7 @@ public class CoordinatorController {
 
     //pra fazer get
     @GetMapping(value = "/get/{id}")
-    public ResponseEntity <CoordinatorDtoResponse> findById(@PathVariable Long id) {
+    public ResponseEntity <CoordinatorDtoResponse>findById(@PathVariable Long id) {
 
         return ResponseEntity.ok().body(mapper.map(coordinatorService.findById(id), CoordinatorDtoResponse.class));
     }

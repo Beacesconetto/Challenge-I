@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/squad")
+@RequestMapping(value = "/squads")
 public class SquadController {
 
     @Autowired

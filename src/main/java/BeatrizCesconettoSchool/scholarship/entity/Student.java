@@ -1,5 +1,6 @@
 package BeatrizCesconettoSchool.scholarship.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -32,6 +33,7 @@ public class Student {
 
     @ManyToOne
     @JoinColumn(name = "schoolclass_id")
+    @JsonBackReference
     private SchoolClass schoolClass;
 
     @ManyToOne

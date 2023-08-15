@@ -1,5 +1,7 @@
 package BeatrizCesconettoSchool.scholarship.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -10,7 +12,6 @@ import lombok.ToString;
 
 @Entity
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "StudentTable")
@@ -32,5 +33,17 @@ public class Instructor {
 
     @ManyToOne
     @JoinColumn(name = "schoolclass_id")
+    @JsonBackReference
     private SchoolClass schoolClass;
+
+    @Override
+    public String toString() {
+        return "Instructor{" +
+                "Id=" + Id +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", schoolClass=" + schoolClass +
+                '}';
+    }
 }

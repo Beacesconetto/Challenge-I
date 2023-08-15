@@ -1,5 +1,6 @@
 package BeatrizCesconettoSchool.scholarship.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -17,6 +18,7 @@ import lombok.ToString;
 public class Coordinator {
 
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -30,6 +32,6 @@ public class Coordinator {
     private String email;
 
     @OneToOne(mappedBy = "coordinator")
-    @JoinColumn(name = "schoolclass_id")
+    @JsonBackReference
     private SchoolClass schoolClass;
 }

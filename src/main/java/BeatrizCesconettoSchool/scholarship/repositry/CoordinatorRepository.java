@@ -8,7 +8,4 @@ import java.util.Optional;
 
 @Repository
 public interface CoordinatorRepository extends JpaRepository <Coordinator, Long> {
-
-Optional<Coordinator> findById(Long id);
-
 }

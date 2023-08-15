@@ -1,5 +1,6 @@
 package BeatrizCesconettoSchool.scholarship.service;
 
+import BeatrizCesconettoSchool.scholarship.Validator.StudentValidator;
 import BeatrizCesconettoSchool.scholarship.dto.StudentDtoRequest;
 import BeatrizCesconettoSchool.scholarship.dto.StudentDtoResponse;
 import BeatrizCesconettoSchool.scholarship.entity.Student;
@@ -32,5 +33,6 @@ public class StudentService {
     public Student getStudentById(Long id) {
         return studentRepository.findById(id).orElse(null);
     }
+
 
 }
