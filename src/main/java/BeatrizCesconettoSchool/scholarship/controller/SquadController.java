@@ -1,10 +1,12 @@
 package BeatrizCesconettoSchool.scholarship.controller;
 
-import BeatrizCesconettoSchool.scholarship.dto.SquadDto;
+import BeatrizCesconettoSchool.scholarship.dto.SquadDtoRequest;
+import BeatrizCesconettoSchool.scholarship.dto.SquadDtoResponse;
 import BeatrizCesconettoSchool.scholarship.repositry.SquadRepository;
 import BeatrizCesconettoSchool.scholarship.service.SquadService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,10 +27,10 @@ public class SquadController {
     }
 
     @PostMapping
-    public ResponseEntity <SquadDto> newSquad(@Valid@RequestBody SquadDto squadDto) {
-        squadService.registerSquad(squadDto);
+    public ResponseEntity <SquadDtoResponse> newSquad(@Valid@RequestBody SquadDtoRequest squadDtoRequest) {
+       SquadDtoResponse squadSave = squadService.registerSquad(squadDtoRequest);
 
-        return ResponseEntity.ok(squadDto);
+        return new ResponseEntity<>(squadSave, HttpStatus.CREATED);
 
     }
 

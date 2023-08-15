@@ -1,6 +1,5 @@
 package BeatrizCesconettoSchool.scholarship.service;
 
-import BeatrizCesconettoSchool.scholarship.Validator.InstructorValidator;
 import BeatrizCesconettoSchool.scholarship.dto.InstructorDtoRequest;
 import BeatrizCesconettoSchool.scholarship.dto.InstructorDtoResponse;
 import BeatrizCesconettoSchool.scholarship.entity.Instructor;

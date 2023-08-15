@@ -1,28 +1,27 @@
 package BeatrizCesconettoSchool.scholarship.dto;
 
-import jakarta.validation.constraints.Email;
+import BeatrizCesconettoSchool.scholarship.entity.Student;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SquadDto {
+public class SquadDtoRequest {
 
 
     private Long Id;
-
-    @NotBlank
     private String name;
 
-    @NotBlank
-    private String lastname;
+    @Size(max = 5)
+    private List<Long> students = new ArrayList<>();
 
-    @Email
-    @NotBlank
-    private String email;
 }
