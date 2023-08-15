@@ -1,8 +1,8 @@
 spring:
-  sql.init.mode: never
+  sql.init.mode: always
   datasource:
 
-    url: jdbc:mysql://localhost:3306/db_scholarship?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/db_scholarship
 
     driver-class-name: com.mysql.cj.jdbc.Driver
 
@@ -17,7 +17,7 @@ spring:
 
     hibernate:
 
-      ddl-auto: update
+      ddl-auto: create-drop
 
     show-sql: false
 

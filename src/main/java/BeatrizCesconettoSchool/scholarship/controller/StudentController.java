@@ -39,4 +39,10 @@ public class StudentController {
 
         return ResponseEntity.ok().body(mapper.map(studentService.getStudentById(id),StudentDtoResponse.class));
     }
+
+    @DeleteMapping("/delete/{id}")
+    public  ResponseEntity <StudentDtoResponse> deletestudent(@PathVariable Long id){
+
+        return ResponseEntity.ok().body(mapper.map(studentService.getStudentById(id),StudentDtoResponse.class));
+    }
 }

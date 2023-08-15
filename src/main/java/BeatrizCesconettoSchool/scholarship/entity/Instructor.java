@@ -14,7 +14,7 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "StudentTable")
+@Table(name = "Instructor")
 public class Instructor {
 
     @Id

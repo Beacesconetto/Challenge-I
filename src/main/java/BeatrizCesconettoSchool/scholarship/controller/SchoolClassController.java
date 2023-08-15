@@ -42,4 +42,5 @@ public class SchoolClassController {
         schoolClassService.finish(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
 }

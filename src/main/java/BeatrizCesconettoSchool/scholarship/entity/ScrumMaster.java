@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "ScumMasterTable")
+@Table(name = "ScrumMaster")
 @Data
 @ToString
 @NoArgsConstructor
