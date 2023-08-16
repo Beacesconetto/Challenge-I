@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/coordinators")
+@RequestMapping("/v1/coordinators")
 public class CoordinatorController {
 
     @Autowired

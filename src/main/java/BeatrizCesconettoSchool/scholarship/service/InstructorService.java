@@ -5,18 +5,18 @@ import BeatrizCesconettoSchool.scholarship.dto.InstructorDtoResponse;
 import BeatrizCesconettoSchool.scholarship.entity.Instructor;
 import BeatrizCesconettoSchool.scholarship.repositry.InstructorRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class InstructorService {
 
-    @Autowired
-    private ModelMapper modelMapper;
+
+    private final ModelMapper modelMapper;
 
     private final InstructorRepository instructorRepository;
 
-    public InstructorService(InstructorRepository instructorRepository) {
+    public InstructorService(ModelMapper modelMapper, InstructorRepository instructorRepository) {
+        this.modelMapper = modelMapper;
         this.instructorRepository = instructorRepository;
     }
 

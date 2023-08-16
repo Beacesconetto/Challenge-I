@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "SchoolClass")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,11 +29,10 @@ public class SchoolClass {
 
     private StatusClass statusClass;
 
-    @OneToMany(mappedBy = "schoolClass")
+    @OneToMany(mappedBy = "schoolClass",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List <Student> students = new ArrayList<>();
 
-
-    @OneToMany(mappedBy = "schoolClass")
+    @OneToMany(mappedBy = "schoolClass",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List <Instructor> instructors = new ArrayList<>();
 
     @OneToOne

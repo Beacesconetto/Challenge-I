@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "ScrumMaster")
 @Data
 @ToString
 @NoArgsConstructor
@@ -32,6 +31,6 @@ public class ScrumMaster {
     private String email;
 
     @OneToOne(mappedBy = "scrumMaster")
-    @JsonBackReference
+    @JsonBackReference(value = "schoolClass-scrum-master")
     private SchoolClass schoolClass;
 }

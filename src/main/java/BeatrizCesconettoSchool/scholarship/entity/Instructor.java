@@ -14,7 +14,6 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Instructor")
 public class Instructor {
 
     @Id
@@ -33,17 +32,7 @@ public class Instructor {
 
     @ManyToOne
     @JoinColumn(name = "schoolclass_id")
-    @JsonBackReference
+    @JsonBackReference(value = "schoolClass-instructors")
     private SchoolClass schoolClass;
 
-    @Override
-    public String toString() {
-        return "Instructor{" +
-                "Id=" + Id +
-                ", name='" + name + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", schoolClass=" + schoolClass +
-                '}';
-    }
 }

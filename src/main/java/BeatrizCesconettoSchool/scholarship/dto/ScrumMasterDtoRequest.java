@@ -13,7 +13,6 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ScrumMasterDtoRequest {
 
-    private Long Id;
 
 
     private String name;

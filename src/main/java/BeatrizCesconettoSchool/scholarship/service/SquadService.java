@@ -7,7 +7,6 @@ import BeatrizCesconettoSchool.scholarship.entity.Student;
 import BeatrizCesconettoSchool.scholarship.repositry.SquadRepository;
 import BeatrizCesconettoSchool.scholarship.repositry.StudentRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,15 +15,17 @@ import java.util.List;
 @Service
 public class SquadService {
 
-    @Autowired
-    private ModelMapper mapper;
 
-    @Autowired
-    StudentRepository studentRepository;
+    private final ModelMapper mapper;
+
+
+    private final StudentRepository studentRepository;
 
     private final SquadRepository squadRepository;
 
-    public SquadService(SquadRepository squadRepository) {
+    public SquadService(ModelMapper mapper, StudentRepository studentRepository, SquadRepository squadRepository) {
+        this.mapper = mapper;
+        this.studentRepository = studentRepository;
         this.squadRepository = squadRepository;
     }
 
@@ -32,9 +33,7 @@ public class SquadService {
 
         List < Student> students = studentRepository.findAllById(squadDtoRequest.getStudents());
 
-        Squad squad = new Squad();
-        squad.setName(squad.getName());
-        squad.setStudents(students);
+        Squad squad = new Squad(squadDtoRequest.getName(),students);
 
         Squad squadSaved = squadRepository.save(squad);
 
