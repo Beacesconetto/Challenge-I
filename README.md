@@ -19,14 +19,26 @@ Endpoints
 A API possui os seguintes endpoints:
 
 GET /v1/COORDINATOR{id}: Retorna a lista de todos os coordinators .
+
 GET /v1/Students{id}: Retorna a lista de todos os alunos.
+
 GET /v1/schoolclass/{id}: Retorna a lista de todas as classes.
+
 POST /v1/students: Cria um novo aluno.
+
 POST /v1/coordinators: Cria um novo coordenador.
+
 POST /v1/scrummasters: Cria um novo scrum master.
+
 POST /v1/scholclass: Cria um novo school class.
+
 POST /v1/instructors: Cria um novo instrutor.
+
 POST /v1/squads: Cria um novo squad.
+
 PUT /v1/{id}/started: Atualiza o status da classe para started
+
 PUT /v1/{id}/finished: Atualiza o status da classe para finished
+
 DELETE /v1/alunos/delete/{id}: Exclui um aluno.
+
