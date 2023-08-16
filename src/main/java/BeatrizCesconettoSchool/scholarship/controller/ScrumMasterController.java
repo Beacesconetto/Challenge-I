@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/scrummasters")
+@RequestMapping(value = "/v1/scrummasters")
 public class ScrumMasterController {
 
     @Autowired

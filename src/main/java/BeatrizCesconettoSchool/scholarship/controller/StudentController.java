@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value ="/students")
+@RequestMapping(value ="/v1/students")
 public class StudentController {
 
     @Autowired
