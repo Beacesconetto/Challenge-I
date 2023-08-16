@@ -14,17 +14,13 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Coordinator")
 public class Coordinator {
 
     @Id
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String name;
-
 
     private String lastname;
 
@@ -32,6 +28,6 @@ public class Coordinator {
     private String email;
 
     @OneToOne(mappedBy = "coordinator")
-    @JsonBackReference
+    @JsonBackReference(value = "schoolClass-coordinator")
     private SchoolClass schoolClass;
 }

@@ -5,18 +5,18 @@ import BeatrizCesconettoSchool.scholarship.dto.ScrumMasterDtoResponse;
 import BeatrizCesconettoSchool.scholarship.entity.ScrumMaster;
 import BeatrizCesconettoSchool.scholarship.repositry.ScrumMasterRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ScrumMasterService {
 
-    @Autowired
-    private ModelMapper modelMapper;
+
+    private final ModelMapper modelMapper;
 
     private final ScrumMasterRepository scrumMasterRepository;
 
-    public ScrumMasterService(ScrumMasterRepository scrumMasterRepository) {
+    public ScrumMasterService(ModelMapper modelMapper, ScrumMasterRepository scrumMasterRepository) {
+        this.modelMapper = modelMapper;
         this.scrumMasterRepository = scrumMasterRepository;
     }
 

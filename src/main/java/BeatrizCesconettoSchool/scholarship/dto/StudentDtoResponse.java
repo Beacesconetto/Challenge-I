@@ -15,6 +15,8 @@ import lombok.ToString;
 public class StudentDtoResponse {
 
 
+    private Long Id;
+
     @NotBlank
     private String name;
 

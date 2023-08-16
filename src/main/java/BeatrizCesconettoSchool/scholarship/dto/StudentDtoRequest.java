@@ -15,8 +15,6 @@ import lombok.ToString;
 public class StudentDtoRequest {
 
 
-    private Long Id;
-
 
     private String name;
 

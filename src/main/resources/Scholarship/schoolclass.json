@@ -1,0 +1,129 @@
+{
+  "id": 1,
+  "name": "The fofoca Brokers",
+  "statusClass": "WAITING",
+  "coordinator": {
+    "id": 1,
+    "name": "Ana",
+    "lastname": "Lima",
+    "email": "ana.lima@example.com"
+  },
+  "scrumMaster": {
+    "name": "Pedro",
+    "lastname": "Santos",
+    "email": "pedro.santos@example.com",
+    "id": 1
+  },
+  "instructors": [
+    {
+      "name": "Lucas",
+      "lastname": "Pereira",
+      "email": "lucas.pereira@example.com",
+      "id": 1
+    },
+    {
+      "name": "Mariana",
+      "lastname": "Fernandes",
+      "email": "mariana.fernandes@example.com",
+      "id": 2
+    },
+    {
+      "name": "Mariana",
+      "lastname": "Fernandes",
+      "email": "mariana.fernandes@example.com",
+      "id": 3
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "name": "Amanda",
+      "lastname": "Almeida",
+      "email": "amanda.almeida@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Gabriel",
+      "lastname": "Santos",
+      "email": "gabriel.santos@example.com"
+    },
+    {
+      "id": 3,
+      "name": "Camila",
+      "lastname": "Fernandes",
+      "email": "camila.fernandes@example.com"
+    },
+    {
+      "id": 4,
+      "name": "João",
+      "lastname": "Almeida",
+      "email": "joao.almeida@example.com"
+    },
+    {
+      "id": 5,
+      "name": "Bianca",
+      "lastname": "Santos",
+      "email": "bianca.santos@example.com"
+    },
+    {
+      "id": 6,
+      "name": "Guilherme",
+      "lastname": "Lima",
+      "email": "guilherme.lima@example.com"
+    },
+    {
+      "id": 7,
+      "name": "Isabela",
+      "lastname": "Oliveira",
+      "email": "isabela.oliveira@example.com"
+    },
+    {
+      "id": 8,
+      "name": "Fernando",
+      "lastname": "Silva",
+      "email": "fernando.silva@example.com"
+    },
+    {
+      "id": 9,
+      "name": "Laura",
+      "lastname": "Pereira",
+      "email": "laura.pereira@example.com"
+    },
+    {
+      "id": 10,
+      "name": "Matheus",
+      "lastname": "Fernandes",
+      "email": "matheus.fernandes@example.com"
+    },
+    {
+      "id": 11,
+      "name": "Júlia",
+      "lastname": "Silva",
+      "email": "julia.silva@example.com"
+    },
+    {
+      "id": 12,
+      "name": "Enzo",
+      "lastname": "Pereira",
+      "email": "enzo.pereira@example.com"
+    },
+    {
+      "id": 13,
+      "name": "João",
+      "lastname": "Almeida",
+      "email": "joao.almeida@example.com"
+    },
+    {
+      "id": 14,
+      "name": "Bianca",
+      "lastname": "Santos",
+      "email": "bianca.santos@example.com"
+    },
+    {
+      "id": 15,
+      "name": "Guilherme",
+      "lastname": "Lima",
+      "email": "guilherme.lima@example.com"
+    }
+  ]
+}

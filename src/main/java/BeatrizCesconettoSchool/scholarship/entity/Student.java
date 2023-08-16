@@ -14,7 +14,6 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Student")
 public class Student {
 
     @Id
@@ -33,10 +32,11 @@ public class Student {
 
     @ManyToOne
     @JoinColumn(name = "schoolclass_id")
-    @JsonBackReference
+    @JsonBackReference(value = "schoolClass-students")
     private SchoolClass schoolClass;
 
     @ManyToOne
     @JoinColumn(name = "squad_id")
+    @JsonBackReference
     private Squad squad;
 }

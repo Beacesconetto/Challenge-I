@@ -5,7 +5,6 @@ import BeatrizCesconettoSchool.scholarship.dto.CoordinatorDtoResponse;
 import BeatrizCesconettoSchool.scholarship.entity.Coordinator;
 import BeatrizCesconettoSchool.scholarship.repositry.CoordinatorRepository;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -13,19 +12,20 @@ import java.util.Optional;
 @Service
 public class CoordinatorService {
 
-    @Autowired
-    private ModelMapper modelMapper;
+
+
+    private final ModelMapper modelMapper;
 
     private final CoordinatorRepository coordinatorRepository;
 
-    public CoordinatorService(CoordinatorRepository coordinatorRepository) {
+    public CoordinatorService(ModelMapper modelMapper, CoordinatorRepository coordinatorRepository) {
+        this.modelMapper = modelMapper;
         this.coordinatorRepository = coordinatorRepository;
     }
 
     public CoordinatorDtoResponse registerCoordinator (CoordinatorDtoRequest coordinatorDtoRequest) {
 
         Coordinator coordinator =  modelMapper.map(coordinatorDtoRequest, Coordinator.class);
-
         Coordinator coordinatorSaved = coordinatorRepository.save(coordinator);
 
         return modelMapper.map(coordinatorSaved, CoordinatorDtoResponse.class);
