@@ -1,6 +1,7 @@
 package BeatrizCesconettoSchool.scholarship.dto;
 
 import BeatrizCesconettoSchool.scholarship.entity.Student;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,6 +15,7 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class SquadDtoResponse {
 
 

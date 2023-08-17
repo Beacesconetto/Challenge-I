@@ -22,6 +22,6 @@ public class SquadDtoRequest {
     private String name;
 
     @Size(max = 5)
-    private List<Long> students = new ArrayList<>();
+    private List <Long> students = new ArrayList<>();
 
 }

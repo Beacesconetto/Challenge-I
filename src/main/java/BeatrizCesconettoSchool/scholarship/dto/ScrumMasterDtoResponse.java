@@ -13,7 +13,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ScrumMasterDtoResponse {
 
-
+    private Long id;
 
     @NotBlank
     private String name;

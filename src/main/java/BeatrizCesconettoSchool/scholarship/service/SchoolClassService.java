@@ -7,7 +7,6 @@ import BeatrizCesconettoSchool.scholarship.exception.SchoolClassNotFoundExceptio
 import BeatrizCesconettoSchool.scholarship.repositry.*;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,23 +15,32 @@ import java.util.Optional;
 @Service
 public class SchoolClassService {
 
-    @Autowired
-    private ModelMapper mapper;
 
-    @Autowired
-    private ScrumMasterRepository scrumMasterRepository;
+    private final ModelMapper mapper;
 
-    @Autowired
-    private CoordinatorRepository coordinatorRepository;
 
-    @Autowired
-    private InstructorRepository instructorRepository;
+    private final ScrumMasterRepository scrumMasterRepository;
 
-    @Autowired
-    private  SchoolClassRepository schoolClassRepository;
 
-    @Autowired
-    private StudentRepository studentRepository;
+    private final CoordinatorRepository coordinatorRepository;
+
+
+    private final InstructorRepository instructorRepository;
+
+
+    private final SchoolClassRepository schoolClassRepository;
+
+
+    private final StudentRepository studentRepository;
+
+    public SchoolClassService(ModelMapper mapper, ScrumMasterRepository scrumMasterRepository, CoordinatorRepository coordinatorRepository, InstructorRepository instructorRepository, SchoolClassRepository schoolClassRepository, StudentRepository studentRepository) {
+        this.mapper = mapper;
+        this.scrumMasterRepository = scrumMasterRepository;
+        this.coordinatorRepository = coordinatorRepository;
+        this.instructorRepository = instructorRepository;
+        this.schoolClassRepository = schoolClassRepository;
+        this.studentRepository = studentRepository;
+    }
 
 
     public SchoolClassDtoResponse registerSchoolClass(SchoolClassDtoRequest schoolClassDtoRequest) {
@@ -46,13 +54,20 @@ public class SchoolClassService {
 
         schoolClass.setCoordinator(coordinator.get());
         schoolClass.setScrumMaster(scrumMaster.get());
-        schoolClass.setInstructors(instructors);
-        schoolClass.setStudents(students);
+        schoolClass.getInstructors().addAll(instructors);
+        schoolClass.getStudents().addAll(students);
+
+        for (Student student : students) {
+            student.setSchoolClass(schoolClass);
+        }
+
+        for (Instructor instructor : instructors) {
+            instructor.setSchoolClass(schoolClass);
+        }
 
         SchoolClass schoolClassSaved = schoolClassRepository.save(schoolClass);
 
         return mapper.map(schoolClassSaved,SchoolClassDtoResponse.class);
-
 
     }
 
@@ -87,5 +102,13 @@ public class SchoolClassService {
             throw new SchoolClassNotFoundException("SchoolCLass not found with id: " + id);
         }
 
+    }
+
+    public SchoolClassDtoResponse getSchoolClassById(Long id) {
+
+       SchoolClass schoolClass = schoolClassRepository.findById(id)
+               .orElseThrow(()->new SchoolClassNotFoundException("School Class id not found"));
+
+        return mapper.map(schoolClass,SchoolClassDtoResponse.class);
     }
 }

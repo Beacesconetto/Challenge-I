@@ -32,11 +32,20 @@ public class SchoolClassController {
         return new ResponseEntity<>(schoolclassdtoSave, HttpStatus.CREATED) ;
     }
 
+    @GetMapping("/get/{id}")
+    public ResponseEntity<SchoolClassDtoResponse> getSchoolClass(@PathVariable Long id) {
+
+        SchoolClassDtoResponse getschoolclass = schoolClassService.getSchoolClassById(id);
+
+        return new ResponseEntity<>(getschoolclass, HttpStatus.OK);
+    }
+
     @PutMapping("/{id}/started")
     public ResponseEntity<Void> startClass(@PathVariable Long id){
         schoolClassService.start(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
     @PutMapping("/{id}/finished")
     public ResponseEntity<Void> finishClass(@PathVariable Long id){
         schoolClassService.finish(id);
