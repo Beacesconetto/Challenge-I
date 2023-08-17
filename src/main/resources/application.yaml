@@ -8,10 +8,14 @@ spring:
 
     username: root
 
+
     password: root
 
 
 
+
+=======
+    password: root
 
   jpa:
 
