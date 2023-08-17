@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "6b0fc29a-be86-44bc-b0b3-a6a17dfa262d",
+		"name": "School_PB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28407883"
+	},
+	"item": [
+		{
+			"name": "POST COORDINATORS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Ana\",\r\n    \"lastname\" : \"Sousa\",\r\n    \"email\" : \"ana.sousa@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/v1/coordinators"
+			},
+			"response": []
+		},
+		{
+			"name": "POST SCRUMMASTERS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"lucas\",\r\n    \"lastname\" : \"moraes\",\r\n    \"email\" : \"lucas.moraes@example.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/scrummasters"
+			},
+			"response": []
+		},
+		{
+			"name": "POST SCHOOLCLASS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n\r\n    \"name\": \"The fofoca Brokers\",\r\n    \"coordinator\": 1,\r\n    \"scrumMaster\": 1,\r\n    \"instructors\": [1,2,3],\r\n    \"students\":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/schoolclass"
+			},
+			"response": []
+		},
+		{
+			"name": "POST STUDENTS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Beatriz\",\r\n    \"lastname\" : \"Cesconetto\",\r\n    \"email\" : \"beatriz.cesconetto@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/students"
+			},
+			"response": []
+		},
+		{
+			"name": "POST INSTRUCTORS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Yago\",\r\n    \"lastname\" : \"Nunes\",\r\n    \"email\" : \"yago.nunes@example.com\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/instructors"
+			},
+			"response": []
+		},
+		{
+			"name": "POST SQUADS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"dsada\",\r\n    \"students\":[1,2,3,4,5]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/squads"
+			},
+			"response": []
+		},
+		{
+			"name": "GET COORDINATORS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/coordinators/get/1"
+			},
+			"response": []
+		},
+		{
+			"name": "GET STUDENTS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"hasahsh\",\r\n    \"lastname\" : \"fgdgdgd\",\r\n    \"email\" : \"eqweqwe@hotmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/students/get/1"
+			},
+			"response": []
+		},
+		{
+			"name": "GET SCHOOL CLASS",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "PUT STARTED CLASS",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:8080/1/started"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT FINISHED CLASS",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:8080/1/finished"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE STUDENT",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/students/delete/1"
+			},
+			"response": []
+		}
+	]
+}
